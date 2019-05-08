@@ -1,0 +1,28 @@
+import React from 'react'
+import { render } from 'react-dom'
+import { Upload, Icon, message, Table ,Row,Col,Card,Button} from 'antd';
+const Dragger = Upload.Dragger;
+import 'antd/dist/iconfont/iconfont.css'
+import 'antd/dist/antd.css';
+function ReadTxt(file){
+    var file=document.getElementById("file").files[0];
+    var reader=new FileReader(file);
+    reader.readAsText(file);
+    reader.onload=function(data)
+    {
+        console.log(this.result);
+    }
+}
+var Index = React.createClass({
+    click (){
+        ReadTxt()
+    },
+    render: function () {
+
+        return (<div>
+            <Button type="primary" onClick={this.click}></Button>
+            </div>)
+    }
+})
+render(<Index/>
+    , document.getElementById('index'));
